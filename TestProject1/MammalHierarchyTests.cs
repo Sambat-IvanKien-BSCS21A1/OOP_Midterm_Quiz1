@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Security.Cryptography;
+using ClassLibrary1;
 
 namespace TestProject1
 {

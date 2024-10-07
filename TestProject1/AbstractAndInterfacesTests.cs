@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ClassLibrary1;
 using System.Drawing;
 
 namespace TestProject1
@@ -31,7 +32,7 @@ namespace TestProject1
         public void Rectangle_Should_Override_AbstractMethods_Correctly()
         {
             // Arrange
-            Rectangle rectangle = new Rectangle { Width = 5, Height = 2 };
+            ClassLibrary1.Rectangle rectangle = new ClassLibrary1.Rectangle { Width = 5, Height = 2 };
 
             // Act
             var area = rectangle.Area();

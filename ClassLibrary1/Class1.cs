@@ -19,11 +19,20 @@
         public void Deposit(decimal amount)
         {
             _balance += amount;
+            if (amount < 0)
+            {
+                Console.WriteLine(_balance);
+            }
         }
 
         public void Withdraw(decimal amount)
         {
             _balance -= amount;
+            if (amount > _balance)
+            {
+                Console.WriteLine(_balance);
+            }
+            
         }
     }
 
@@ -69,4 +78,82 @@
             Department = department;
         }
     }
+
+    public class Animal
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public string Breed {  get; set; }
+        public virtual string MakeSound()
+        {
+            return "Generic animal sound";
+        }
+        public virtual string Eat()
+        {
+            return "Animal is eating.";
+        }
+    }
+    public class Dog : Animal
+    {
+        public override string MakeSound()
+        {
+            return "Woof!";
+        }
+    }
+    public class Cat : Animal
+    {
+        public override string MakeSound()
+        {
+            return "Meow!";
+        }
+    }
+    public class Mammal : Animal
+    {
+        public override string Eat()
+        {
+            return "Animal is eating.";
+        }
+        public virtual string GiveBirth()
+        {
+            return "Mammal is giving birth.";
+        }
+    }
+    public class Human : Mammal
+    {
+        public override string Eat()
+        {
+            return "Animal is eating.";
+        }
+        public string Talk()
+        {
+            return "Human is talking.";
+        }
+        public override string GiveBirth()
+        {
+            return "Mammal is giving birth.";
+        }
+    }
+
+    public abstract class Shape()
+    {
+        public abstract double Area();
+    }
+    public class Circle : Shape
+    {
+        public double Radius { get; set; }
+        public override double Area()
+        {
+            return Math.PI * Radius * Radius;
+        }
+    }
+    public class Rectangle : Shape
+    {
+        public double Width { get; set; }
+        public double Height { get; set; }
+        public override double Area()
+        {
+            return Width * Height;
+        }
+    }
+
 }

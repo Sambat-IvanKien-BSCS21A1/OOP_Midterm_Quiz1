@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ClassLibrary1;
 using System;
 using System.Drawing;
 
@@ -24,7 +25,7 @@ namespace TestProject1
         public void Rectangle_Should_Calculate_Area_Correctly()
         {
             // Arrange
-            Rectangle rectangle = new Rectangle { Width = 4, Height = 6 };
+            ClassLibrary1.Rectangle rectangle = new ClassLibrary1.Rectangle { Width = 4, Height = 6 };
 
             // Act
             double area = rectangle.Area();
