@@ -11,10 +11,17 @@
             _balance = initialBalance;
         }
 
+        public decimal GetBalance(int bal)
+        {
+            _balance = bal;
+
+            return _balance;
+        }
         public decimal GetBalance()
         {
             return _balance;
         }
+
 
         public void Deposit(decimal amount)
         {
@@ -36,14 +43,14 @@
         }
     }
 
-    public class Customer
+    public class Customer : Employee
     {
         private string _name;
         private int _age;
         public string Name { get => _name; set => _name = value; }
         public int Age { get => _age; set => _age = value; }
 
-        public Customer(string name, int age)
+        public Customer(string name, int age, string Id) : base(Id) 
         {
             _name = name;
             _age = age;
@@ -52,6 +59,12 @@
         public string GetCustomerDetails()
         {
             return $"Name: {Name}, Age: {Age}";
+        }
+
+        public string SetName(string name)
+        {
+            _name = name;
+            return _name;
         }
     }
 
@@ -65,6 +78,12 @@
 
         public string GetEmployeeId()
         {
+            return _employeeId;
+        }
+        public string GetEmployeeId(string employID)
+        {
+            _employeeId = employID;
+
             return _employeeId;
         }
     }
@@ -134,16 +153,25 @@
         }
     }
 
-    public abstract class Shape()
+    public interface IColorable
+    {
+        string Paint(string color);
+    }
+
+    public abstract class Shape
     {
         public abstract double Area();
     }
-    public class Circle : Shape
+    public class Circle : Shape, IColorable 
     {
         public double Radius { get; set; }
         public override double Area()
         {
             return Math.PI * Radius * Radius;
+        }
+        public string Paint(string color)
+        {
+            return "Painting the circle " + color + ".";
         }
     }
     public class Rectangle : Shape
